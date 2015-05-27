@@ -1,0 +1,1 @@
+web: gunicorn phonenote:app --log-file=-
