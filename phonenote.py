@@ -4,22 +4,22 @@ import twilio.twiml
 app = Flask(__name__)
  
 callers = {
-    "+14158675309": "Curious George",
-    "+14158675310": "Boots",
-    "+14158675311": "Virgil",
+    "+17346049937": "Robert Work",
+    "+17349941474": "Robert Mobile",
+    "+17343323475": "Robert Work 02",
 }
  
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
+def hello_robert():
     from_number = request.values.get('From', None)
     if from_number in callers:
         caller = callers[from_number]
     else:
-        caller = "Monkey"
+        caller = "Robert"
  
     resp = twilio.twiml.Response()
     # Greet the caller by name
-    resp.say("Hello " + caller)
+    resp.say("Hello Robert")
     # Play an mp3
     resp.play("http://demo.twilio.com/hellomonkey/monkey.mp3")
  
