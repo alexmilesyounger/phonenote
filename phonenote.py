@@ -13,9 +13,9 @@ def phone_note():
 
     from_number = request.values.get('From', None)
     resp = twilio.twiml.Response()
-    # resp.say("Hello Robert. Record your message after the tone. Press any key to finish recording.")
-    # Play an mp3
-    resp.play("phonenote_Robert.mp3")
+    resp.say("Hello Robert. Record your message after the tone. Press any key to finish recording.")
+    # Play an mp3 NOT WORKING, HTTP ERRORS
+    # resp.play("phonenote_Robert.mp3")
     # maxLength 3600 = one hour
     resp.record(maxLength="3600", action="/handle-recording", finishOnKey="")
     return str(resp)
@@ -27,8 +27,9 @@ def handle_recording():
     recording_url = request.values.get("RecordingUrl", None)
  
     resp = twilio.twiml.Response()
-    # resp.say("Thank you. Goodbye.")
-    resp.play("phonenote_Robert_goodbye.mp3")
+    resp.say("Thank you. Goodbye.")
+    # Play an mp3 NOT WORKING, HTTP ERRORS
+    # resp.play("phonenote_Robert_goodbye.mp3")
 
     return str(resp)
   
