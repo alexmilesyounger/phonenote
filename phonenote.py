@@ -26,7 +26,8 @@ def handle_recording():
     recording_url = request.values.get("RecordingUrl", None)
  
     resp = twilio.twiml.Response()
-    resp.say("Thank you. Goodbye.")
+    # resp.say("Thank you. Goodbye.")
+    resp.play("http://www.cooperstrategic.com/audio/phonenote_Robert_goodbye.mp3")
 
     return str(resp)
   
