@@ -1,4 +1,5 @@
 # phonenote for Robert (734) 234-0043
+# https://stormy-taiga-7073.herokuapp.com
 from flask import Flask, request, redirect
 import twilio.twiml
  
@@ -14,7 +15,7 @@ def phone_note():
     resp = twilio.twiml.Response()
     # resp.say("Hello Robert. Record your message after the tone. Press any key to finish recording.")
     # Play an mp3
-    resp.play("http://www.cooperstrategic.com/audio/phonenote_Robert.mp3")
+    resp.play("https://stormy-taiga-7073.herokuapp.com/audio/phonenote_Robert.mp3")
     # maxLength 3600 = one hour
     resp.record(maxLength="3600", action="/handle-recording", finishOnKey="")
     return str(resp)
@@ -27,7 +28,7 @@ def handle_recording():
  
     resp = twilio.twiml.Response()
     # resp.say("Thank you. Goodbye.")
-    resp.play("http://www.cooperstrategic.com/audio/phonenote_Robert_goodbye.mp3")
+    resp.play("https://stormy-taiga-7073.herokuapp.com/audio/phonenote_Robert_goodbye.mp3")
 
     return str(resp)
   
